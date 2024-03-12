@@ -1,0 +1,376 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100vw;
+    /* height: 100vh; */
+    background-color: #114BB3;
+    /* overflow: hidden; */
+}
+header {
+    width: 100vw;
+    height: 80px;
+    background-color: #003189;
+    padding: 25px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ardess {
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #fff;
+}
+.background-art, .bigTopVector, .smallMiddleVector, .bigBottomVector {
+    position: absolute;
+}
+.background-art {
+    height: 1880px;
+    width: 100%;
+}
+.bigTopVector {
+    left: 165px;
+    top: 0;
+}
+.smallMiddleVector {
+    top: 669px;
+    right: 0;
+}
+.bigBottomVector {
+    right: 0;
+    bottom: 0;
+}
+.page-content {
+    position: absolute;
+    z-index: 1;
+    padding-top: 24px;
+    width: 100vw;
+    height: 1880px;
+    display: flex;
+}
+.players-list {
+    width: 380px;
+}
+.list-head, .list-elem {
+    width: 100%;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.list-head {
+    background-color: #08297E;
+    border-radius: 0 20px 0 0;
+    height: 50px;
+}
+.list-head p {
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    color: #fff;
+}
+.head-number {
+    font-weight: 700 !important;
+}
+.head-player {
+    width: 235px;
+}
+.head-points {
+    width: 70px;
+}
+.list-elem {
+    background-color: #E1F3FF;
+    border-bottom: 1px dashed #2882EE;
+    height: 58.26px;
+}
+.list-elem p {
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: left;
+    color: #31404F;
+}
+.phone {
+    font-weight: 400 !important;
+}
+.points {
+    color: #000;
+    background-color: #fff;
+    padding: 5px 10px;
+    border-radius: 8px;
+}
+.promo-info {
+    position: absolute;
+    right: 0;
+    padding: 0 40px;
+    width: 900px;
+}
+.promo-info .page-name {
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 26px;
+    text-align: left;
+    color: #fff;
+    margin-bottom: 12px;
+}
+.title {
+    display: flex;
+}
+.title-desc {
+    margin-left: 20px;
+}
+.title-desc h1 {
+    font-family: sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 55px;
+    text-align: left;
+    color: #fff;
+    margin-bottom: 4px;
+}
+.date-range {
+    font-family: sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 30.8px;
+    text-align: left;
+    color: #93d500;
+}
+
+.three-steps {
+    width: 100%;
+    height: 187px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+.green-card {
+    background-color: #2eac12;
+    width: 260px;
+    padding: 27px 20px 20px 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 50px 50px 50px 0;
+}
+.green-card .titleish {
+    display: flex;
+}
+.green-card .titleish .text {
+    font-family: sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 30px;
+    text-align: left;
+    color: #fff;
+}
+.green-card .desc {
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #fff;
+} 
+.rules {
+    margin-top: 30px;
+    /* height: 196px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+}
+h2 {
+    font-family: sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 35px;
+    text-align: left;
+    color: #fff;
+}
+.rules-content {
+    margin-top: 16px;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28.5px;
+    text-align: left;
+    color: #fff;
+}
+
+.reminder {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px 12px;
+    border: 2px solid #088BE7;
+    border-radius: 38px;
+}
+.text-reminder {
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 28.5px;
+    text-align: left;
+    color: #fff;
+    margin-left: 12px;
+}
+
+.prizes {
+    margin-top: 42px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.prize-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.ten-negros {
+    width: 820px;
+    height: 320px;
+    background-color: #fff;
+    border-radius: 30px;
+    padding: 10px 20px;
+    display: flex;
+}
+.first-five {
+    width: 365px;
+}
+.place-info {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    height: 60px;
+    border-bottom: 1px solid #8394A6;
+    padding: 10px 0;
+}
+.place {
+    height: 40px;
+    width: 106px;
+    color: #1E1E1E;
+    background-color: #ADEE7B;
+    border-radius: 8px;
+    font-family: sans-serif;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 23px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.coupon {
+    display: flex;
+    gap: 10px;
+}
+.sum {
+    color: #31404F;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 22px;
+    text-align: center;
+}
+.place-info-bottom, .bet-info-bottom {
+    border: none !important;
+}
+.divider {
+    width: 2px;
+    height: 280px;
+    background-color: #66bb6a;
+    margin: 10px 33px;
+}
+
+.bets-history {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.history-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.bets-list {
+    width: 820px;
+    height: 321px;
+    background-color: #08297E;
+    padding: 15px 30px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.bet-info {
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: #fff;
+    padding: 8px 0;
+    border-bottom: 1px solid #8394A6;
+}
+
+.previous-winners {
+    margin-top: 40px;
+    width: 820px;
+    height: 225px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.winners {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.winners-title {
+    height: 35px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.winner-winner-chicken-dinner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #169c00;
+    width: 820px;
+    height: 50px;
+    border-radius: 12px;
+    padding: 10px 18px;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 20px;
+    text-align: left;
+    color: #fff;
+}
+.winner-name {
+    width: 140px;
+}
+.winner-phone {
+    font-weight: 400;
+    width: 400px;
+}
+.winner-prize {
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 7px;
+}
