@@ -31,7 +31,7 @@ header {
     position: absolute;
 }
 .background-art {
-    height: 1880px;
+    height: 1840px;
     width: 100%;
 }
 .bigTopVector {
@@ -51,7 +51,7 @@ header {
     z-index: 1;
     padding-top: 24px;
     width: 100vw;
-    height: 1880px;
+    height: 1840px;
     display: flex;
 }
 .players-list {
@@ -59,10 +59,10 @@ header {
 }
 .list-head, .list-elem {
     width: 100%;
-    padding: 16px 20px;
+    padding: 19px 12px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 10px;
 }
 .list-head {
     background-color: #08297E;
@@ -77,6 +77,10 @@ header {
     text-align: left;
     color: #fff;
 }
+.number {
+    text-align: right;
+    width: 24px;
+}
 .head-number {
     font-weight: 700 !important;
 }
@@ -86,10 +90,15 @@ header {
 .head-points {
     width: 70px;
 }
+/* .list-elem-first {
+    top: 133.26px;
+} */
 .list-elem {
+    position: absolute;
+    width: 380px;
     background-color: #E1F3FF;
     border-bottom: 1px dashed #2882EE;
-    height: 58.26px;
+    height: 59px;
 }
 .list-elem p {
     font-family: sans-serif;
@@ -99,8 +108,15 @@ header {
     text-align: left;
     color: #31404F;
 }
+.list-elem .player {
+    width: 128px;
+}
 .phone {
     font-weight: 400 !important;
+    width: 72px;
+}
+.points-wrapper {
+    width: 102px;
 }
 .points {
     color: #000;
@@ -111,8 +127,8 @@ header {
 .promo-info {
     position: absolute;
     right: 0;
-    padding: 0 40px;
-    width: 900px;
+    padding: 0 30px;
+    width: 700px;
 }
 .promo-info .page-name {
     font-family: sans-serif;
@@ -131,56 +147,64 @@ header {
 }
 .title-desc h1 {
     font-family: sans-serif;
-    font-size: 50px;
+    font-size: 42px;
     font-weight: 700;
-    line-height: 55px;
+    line-height: 46px;
     text-align: left;
     color: #fff;
     margin-bottom: 4px;
 }
 .date-range {
     font-family: sans-serif;
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 600;
-    line-height: 30.8px;
+    line-height: 28.6px;
     text-align: left;
     color: #93d500;
 }
 
 .three-steps {
     width: 100%;
-    height: 187px;
+    height: 238px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 .green-card {
     background-color: #2eac12;
-    width: 260px;
+    width: 200px;
     padding: 27px 20px 20px 20px;
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 10px;
     border-radius: 50px 50px 50px 0;
 }
 .green-card .titleish {
     display: flex;
 }
+.titleish {
+    flex-direction: column-reverse;
+    gap: 10px;
+}
+.titleish .icon {
+    width: 60px;
+    height: 60px;
+}
 .green-card .titleish .text {
     font-family: sans-serif;
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 700;
-    line-height: 30px;
+    line-height: 26px;
     text-align: left;
     color: #fff;
 }
 .green-card .desc {
     font-family: sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 22px;
     text-align: left;
     color: #fff;
 } 
@@ -193,18 +217,18 @@ header {
 }
 h2 {
     font-family: sans-serif;
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 700;
-    line-height: 35px;
+    line-height: 30.8px;
     text-align: left;
     color: #fff;
 }
 .rules-content {
     margin-top: 16px;
     font-family: sans-serif;
-    font-size: 24px;
+    font-size: 21px;
     font-weight: 400;
-    line-height: 28.5px;
+    line-height: 25.2px;
     text-align: left;
     color: #fff;
 }
@@ -212,26 +236,30 @@ h2 {
 .reminder {
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 24px;
     padding: 10px 12px;
     border: 2px solid #088BE7;
     border-radius: 38px;
 }
 .text-reminder {
     font-family: sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
-    line-height: 28.5px;
+    line-height: 26.4px;
     text-align: left;
     color: #fff;
     margin-left: 12px;
 }
 
 .prizes {
-    margin-top: 42px;
+    margin-top: 36px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
+}
+.prizes img, .bets-history img{
+    width: 32px;
+    height: 32px;
 }
 .prize-title {
     display: flex;
@@ -239,50 +267,66 @@ h2 {
     gap: 10px;
 }
 .ten-negros {
-    width: 820px;
+    width: 640px;
     height: 320px;
     background-color: #fff;
     border-radius: 30px;
     padding: 10px 20px;
     display: flex;
 }
-.first-five {
-    width: 365px;
-}
+/* .first-five {
+    width: 286px;
+} */
 .place-info {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 10px;
     height: 60px;
+    max-width: 286px;
     border-bottom: 1px solid #8394A6;
     padding: 10px 0;
 }
 .place {
     height: 40px;
-    width: 106px;
+    width: 60px;
     color: #1E1E1E;
     background-color: #ADEE7B;
     border-radius: 8px;
-    font-family: sans-serif;
-    font-size: 21px;
-    font-weight: 700;
-    line-height: 23px;
-    text-align: center;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 5.5px 9.5px;
+    text-align: center;
+    font-family: sans-serif;
+}
+.figure {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 16px;
+}
+.mesto {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
 }
 .coupon {
     display: flex;
     gap: 10px;
 }
+.coupon img {
+    width: 30px;
+}
 .sum {
     color: #31404F;
     font-family: sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
-    line-height: 22px;
+    line-height: 19.8px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .place-info-bottom, .bet-info-bottom {
     border: none !important;
@@ -291,11 +335,11 @@ h2 {
     width: 2px;
     height: 280px;
     background-color: #66bb6a;
-    margin: 10px 33px;
+    margin: 10px 18px;
 }
 
 .bets-history {
-    margin-top: 40px;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -306,10 +350,10 @@ h2 {
     gap: 10px;
 }
 .bets-list {
-    width: 820px;
-    height: 321px;
+    width: 640px;
+    height: 330px;
     background-color: #08297E;
-    padding: 15px 30px;
+    padding: 9px 30px;
     border-radius: 30px;
     display: flex;
     flex-direction: column;
@@ -322,14 +366,14 @@ h2 {
     line-height: 24px;
     text-align: left;
     color: #fff;
-    padding: 8px 0;
+    padding: 21px 6px;
     border-bottom: 1px solid #8394A6;
 }
 
 .previous-winners {
-    margin-top: 40px;
-    width: 820px;
-    height: 225px;
+    margin-top: 30px;
+    width: 640px;
+    height: 222px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -347,30 +391,34 @@ h2 {
 }
 .winner-winner-chicken-dinner {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
     background-color: #169c00;
-    width: 820px;
     height: 50px;
     border-radius: 12px;
-    padding: 10px 18px;
+    padding: 10px 12px;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
-    line-height: 20px;
+    line-height: 19px;
     text-align: left;
     color: #fff;
 }
+.winner-place {
+    width: 20px;
+}
 .winner-name {
-    width: 140px;
+    width: 100px;
 }
 .winner-phone {
     font-weight: 400;
-    width: 400px;
+    width: 300px;
 }
 .winner-prize {
     padding: 5px 10px;
     background-color: #fff;
     color: #000;
     border-radius: 7px;
+    font-size: 18px;
+    line-height: 19px;
 }
