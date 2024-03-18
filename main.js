@@ -111,7 +111,7 @@ const updateOrder = changeData => {
         player.style.top = `${playerElemHeight * (changeData.new-1) + topAbsoluter}px`;
     }, 50);
     player.querySelector('.number').innerText = player.id = changeData.new;
-    player.querySelector('.points').innerText = changeData.score;
+    player.querySelector('.points').innerText = new Intl.NumberFormat('ru-RU').format(changeData.score);
     setTimeout(() => {
         player.style.backgroundColor = "#D4FFD0";
     }, 50);
