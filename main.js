@@ -71,6 +71,7 @@ const updateOrder = changeData => {
 const addAllPlayers = data => {
     let player = document.createElement("div");
     player.classList.add("list-elem");
+    player.id = data.rank;
 
     let currRank = document.createElement("p");
     currRank.classList.add("number");
@@ -117,6 +118,10 @@ const addPlayer = adData => {
     phoneNum.innerText = '+7...' + adData.phone;
     points.innerText = new Intl.NumberFormat('ru-RU').format(adData.scores);
 
+    if (players.children.length == 31) {
+        document.getElementById(31).remove();
+        player.id = 31;
+    }
     players.append(player);
 
     if (adData.rank < players.children.length) {
@@ -137,10 +142,10 @@ const addPlayer = adData => {
 
         reShuffle(dataForShuffle);
 
+        player.id = adData.rank;
         setTimeout(() => {
             player.style.top = `${playerElemHeight * (adData.rank-1) + topAbsoluter}px`;
         }, 50);
-        player.id = adData.rank;
         setTimeout(() => {
             player.style.backgroundColor = "#D4FFD0";
         }, 50);
@@ -166,16 +171,11 @@ socket.onopen = connection => {
 }
 socket.onmessage = event => {
   let data = JSON.parse(event.data);
-  console.log(data);
   if (data.name) {
     nameOfPPS.innerText = data.name;
     let rating = data.rating;
     for (let i = 0; i < rating.length; i++) {
         addAllPlayers(rating[i]);
-    }
-    let messages = data.messages;
-    for (let i = 0; i < messages.length; i++) {
-        updateMessages(messages[i].bet);
     }
   }
   if (data.add) {

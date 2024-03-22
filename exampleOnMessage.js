@@ -3,13 +3,13 @@ export const rateChange =
     update: {
         old: 8,
         new: 3,
-        score: 50001
+        scores: 50001
     },
     add: {
         rank: 8,
         name: 'Павел C.',
         phone: '6456',
-        score: 4,
+        scores: 4,
 
     },
 
