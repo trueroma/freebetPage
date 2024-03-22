@@ -372,6 +372,14 @@ h2 {
     gap: 10px;
     overflow: hidden;
 }
+.bets-list-messages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    overflow: hidden;
+}
 .dash {
     position: absolute;
     height: 1px;

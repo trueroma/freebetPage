@@ -1,56 +1,11 @@
-import { accounts } from "./exampleOnOpen.js";
-import { messages } from "./exampleOnOpen.js";
-
-import { rateChange } from "./exampleOnMessage.js";
-import { betMessage } from "./exampleOnMessage.js";
-
-import { newRateDood } from "./exampleOnMessage.js";
-
 const players = document.querySelector(".list-elements");
-const betsList = document.querySelector(".bets-list");
+const betsList = document.querySelector(".bets-list-messages");
+const nameOfPPS = document.querySelector(".ardess");
 
 let topAbsoluter = 74;
 let playerElemHeight = 59;
 
-for (let i = 0; i < accounts.length; i++) {
-    let player = document.createElement("div");
-    player.classList.add("list-elem");
-
-    let currRank = document.createElement("p");
-    currRank.classList.add("number");
-    let playerName = document.createElement("p");
-    playerName.classList.add("player");
-    let phoneNum = document.createElement("p");
-    phoneNum.classList.add("phone");
-    let pointsWrapper = document.createElement("div");
-    pointsWrapper.classList.add("points-wrapper");
-    let points = document.createElement("p");
-    points.classList.add("points");
-
-    pointsWrapper.append(points);
-    player.append(currRank, playerName, phoneNum, pointsWrapper);
-
-    currRank.innerText = accounts[i].rank;
-    playerName.innerText = accounts[i].name;
-    phoneNum.innerText = '+7...' + accounts[i].phone;
-    points.innerText = new Intl.NumberFormat('ru-RU').format(accounts[i].scores);
-
-    player.style = `top: ${topAbsoluter + playerElemHeight * i}px`;
-    player.id = accounts[i].rank;
-    players.append(player);
-}
-
-for (let i = 0; i < messages.length; i++) {
-    let message = document.createElement("div");
-    message.classList.add("bet-info");
-
-    message.innerText = messages[i].bet;
-
-    betsList.prepend(message);
-}
-
 const updateMessages = textMsg => {
-    console.log(betsList.children.length);
     let message = document.createElement("div");
     message.classList.add("bet-info");
     message.style.backgroundColor = '#1040BE';
@@ -63,8 +18,6 @@ const updateMessages = textMsg => {
     betsList.prepend(message);
     if (betsList.children.length > 3) betsList.removeChild(betsList.childNodes[3]);
 }
-
-setTimeout(updateMessages, 3000, betMessage.bet);
 
 const reShuffle = obj => {
     // сначала нужно определить какие именно элементы будут изменяться
@@ -90,7 +43,6 @@ const reShuffle = obj => {
             player.style.backgroundColor = "";
         }, 7000);
 
-        console.log(player.style.top);
     }
     for (let i = 0; i < pickedBlocks.length; i++) {
         pickedBlocks[i].id = movingPlaces[i+1];
@@ -98,12 +50,8 @@ const reShuffle = obj => {
 }
 
 // update делаем тут
-
-let upData = rateChange.update
-console.log(upData);
 const updateOrder = changeData => {
     let player = document.getElementById(changeData.old);
-    console.log(player);
 
     reShuffle(changeData);
 
@@ -111,7 +59,7 @@ const updateOrder = changeData => {
         player.style.top = `${playerElemHeight * (changeData.new-1) + topAbsoluter}px`;
     }, 50);
     player.querySelector('.number').innerText = player.id = changeData.new;
-    player.querySelector('.points').innerText = new Intl.NumberFormat('ru-RU').format(changeData.score);
+    player.querySelector('.points').innerText = new Intl.NumberFormat('ru-RU').format(changeData.scores);
     setTimeout(() => {
         player.style.backgroundColor = "#D4FFD0";
     }, 50);
@@ -120,8 +68,32 @@ const updateOrder = changeData => {
     }, 7000);
 }
 
-const newData = rateChange.add;
+const addAllPlayers = data => {
+    let player = document.createElement("div");
+    player.classList.add("list-elem");
 
+    let currRank = document.createElement("p");
+    currRank.classList.add("number");
+    let playerName = document.createElement("p");
+    playerName.classList.add("player");
+    let phoneNum = document.createElement("p");
+    phoneNum.classList.add("phone");
+    let pointsWrapper = document.createElement("div");
+    pointsWrapper.classList.add("points-wrapper");
+    let points = document.createElement("p");
+    points.classList.add("points");
+
+    pointsWrapper.append(points);
+    player.append(currRank, playerName, phoneNum, pointsWrapper);
+
+    currRank.innerText = data.rank;
+    playerName.innerText = data.name;
+    phoneNum.innerText = '+7...' + data.phone;
+    points.innerText = new Intl.NumberFormat('ru-RU').format(data.scores);
+
+    player.style.top = `${playerElemHeight * (data.rank-1) + topAbsoluter}px`;
+    players.append(player);
+}
 const addPlayer = adData => {
     let player = document.createElement("div");
     player.classList.add("list-elem");
@@ -143,7 +115,7 @@ const addPlayer = adData => {
     currRank.innerText = adData.rank;
     playerName.innerText = adData.name;
     phoneNum.innerText = '+7...' + adData.phone;
-    points.innerText = new Intl.NumberFormat('ru-RU').format(adData.score);
+    points.innerText = new Intl.NumberFormat('ru-RU').format(adData.scores);
 
     players.append(player);
 
@@ -158,7 +130,7 @@ const addPlayer = adData => {
         let dataForShuffle = {
             old: players.children.length,
             new: adData.rank,
-            score: adData.score
+            scores: adData.scores
         }
 
         player.style.top = `${playerElemHeight * (players.children.length-1) + topAbsoluter}px`;
@@ -187,6 +159,32 @@ const addPlayer = adData => {
     }
 }
 
-setTimeout(addPlayer, 2000, newData);
-setTimeout(addPlayer, 5000, newRateDood.add);
-setTimeout(updateOrder, 8000, upData);
+// добавляем сокет
+const socket = new WebSocket(``);
+socket.onopen = connection => {
+    console.log(connection);
+}
+socket.onmessage = event => {
+  let data = JSON.parse(event.data);
+  console.log(data);
+  if (data.name) {
+    nameOfPPS.innerText = data.name;
+    let rating = data.rating;
+    for (let i = 0; i < rating.length; i++) {
+        addAllPlayers(rating[i]);
+    }
+    let messages = data.messages;
+    for (let i = 0; i < messages.length; i++) {
+        updateMessages(messages[i].bet);
+    }
+  }
+  if (data.add) {
+    addPlayer(data.add);
+  }
+  if (data.bet) {
+    updateMessages(data.bet);
+  }
+  if (data.update) {
+    updateOrder(data.update);
+  }
+}

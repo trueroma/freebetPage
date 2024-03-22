@@ -4,43 +4,43 @@ export const accounts =
         rank: 1,
         name: 'Кирилл Н',
         phone: '1488',
-        scores: 1500000
+        score: 1500000
     },
     {
         rank: 2,
         name: 'Георгий Ю',
         phone: '1140',
-        scores: 500000
+        score: 500000
     },
     {
         rank: 3,
         name: 'Адбурахман К',
         phone: '0740',
-        scores: 50000
+        score: 50000
     },
     {
         rank: 4,
         name: 'Бирмиджон А',
         phone: '2289',
-        scores: 5000
+        score: 5000
     },
     {
         rank: 5,
         name: 'Прометей Ы',
         phone: '4452',
-        scores: 500
+        score: 500
     },
     {
         rank: 6,
         name: 'Вольфшлегельштайнхаузенбергедорф С',
         phone: '3228',
-        scores: 50
+        score: 50
     },
     {
         rank: 7,
         name: 'Амогус И',
         phone: '4052',
-        scores: 5
+        score: 5
     },
   
 ];
