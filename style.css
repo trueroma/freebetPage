@@ -460,3 +460,19 @@ h2 {
     font-size: 18px;
     line-height: 19px;
 }
+.serviceUnavaliable {
+    position: absolute;
+    font-family: sans-serif;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 46px;
+    text-align: left;
+    color: #fff;
+    background-color: #000;
+    padding: 20px;
+    border-radius: 20px;
+    width: 50vw;
+    text-align: center;
+    left: 25vw;
+    z-index: 2;
+}
