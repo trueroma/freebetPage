@@ -185,7 +185,7 @@ const addPlayer = adData => {
 const currentUrl = new URL(window.location.href);
 let socketUrl = currentUrl.href.replace("http", "ws");
 socketUrl = socketUrl.replace("/ladder/", "/ws/");
-socketUrl = socketUrl.replace("index.html", "");
+socketUrl = socketUrl.replace("/index.html", "");
 
 const socket = new WebSocket(socketUrl);
 socket.onopen = connection => {
