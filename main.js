@@ -183,7 +183,7 @@ const addPlayer = adData => {
 
 // добавляем сокет
 const currentUrl = new URL(window.location.href);
-let socketUrl = currentUrl.href.replace("http", "wss");
+let socketUrl = currentUrl.href.replace("http", "ws");
 socketUrl = socketUrl.replace("/ladder/", "/ws/");
 
 const socket = new WebSocket(socketUrl);
