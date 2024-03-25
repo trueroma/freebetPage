@@ -35,7 +35,7 @@ const reShuffle = obj => {
         let player = document.getElementById(movingPlaces[i]);
         pickedBlocks.push(player);
         player.querySelector('.number').innerText = movingPlaces[i+1];
-        player.style.top = `${playerElemHeight * (movingPlaces[i]) + topAbsoluter}px`;
+        player.style.top = `${playerElemHeight * movingPlaces[i] + topAbsoluter}px`;
         setTimeout(() => {
             player.style.backgroundColor = "#FFD8D8";
         }, 50);
@@ -47,6 +47,15 @@ const reShuffle = obj => {
     for (let i = 0; i < pickedBlocks.length; i++) {
         pickedBlocks[i].id = movingPlaces[i+1];
     }
+
+    let arr = [];
+    for (let i = 0; i < players.children.length; i++) {
+        arr[i] = players.children[i].id;
+    }
+    let arrDuplicates = arr.filter((number, index, numbers) => {
+        numbers.indexOf(number) !== index;
+    });
+    if (arrDuplicates.length) console.log('наличие повторяющихся id:', arrDuplicates);
 }
 
 // update делаем тут
@@ -118,11 +127,19 @@ const addPlayer = adData => {
     phoneNum.innerText = '+7...' + adData.phone;
     points.innerText = new Intl.NumberFormat('ru-RU').format(adData.scores);
 
-    if (players.children.length == 31) {
-        document.getElementById(31).remove();
-        player.id = 31;
+    if (players.children.length == 30) {
+        document.getElementById(30).remove();
+        player.id = 30;
     }
     players.append(player);
+    let arr = [];
+    for (let i = 0; i < players.children.length; i++) {
+        arr[i] = players.children[i].id;
+    }
+    let arrDuplicates = arr.filter((number, index, numbers) => {
+        numbers.indexOf(number) !== index;
+    });
+    if (arrDuplicates.length) console.log('наличие повторяющихся id:', arrDuplicates);
 
     if (adData.rank < players.children.length) {
         let movingCounter = players.children.length - adData.rank
@@ -165,7 +182,11 @@ const addPlayer = adData => {
 }
 
 // добавляем сокет
-const socket = new WebSocket(``);
+const currentUrl = new URL(window.location.href);
+let socketUrl = currentUrl.href.replace("http", "wss");
+socketUrl = socketUrl.replace("/ladder/", "/ws/");
+
+const socket = new WebSocket(socketUrl);
 socket.onopen = connection => {
     console.log(connection);
 }
@@ -179,12 +200,14 @@ socket.onmessage = event => {
     }
   }
   if (data.add) {
+    console.log(data.add);
     addPlayer(data.add);
   }
   if (data.bet) {
     updateMessages(data.bet);
   }
   if (data.update) {
+    console.log(data.update);
     updateOrder(data.update);
   }
 }
