@@ -196,6 +196,7 @@ socket.onmessage = event => {
   if (data.name) {
     nameOfPPS.innerText = data.name;
     let rating = data.rating;
+    players.innerHTML = '';
     for (let i = 0; i < rating.length; i++) {
         addAllPlayers(rating[i]);
     }
