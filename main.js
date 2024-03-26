@@ -189,14 +189,6 @@ socketUrl = socketUrl.replace("/index.html", "");
 
 const socket = new WebSocket(socketUrl);
 console.log("socket:", socket);
-if (socket.readyState == 0) {
-    players.innerHTML = `<div class="serviceUnavaliable">
-        Сервис обновляется, пожалуйста повторите попытку позднее
-    </div>`;
-    setTimeout(()=>{
-        location.reload();
-    }, 60000);
-}
 socket.onopen = connection => {
     console.log(connection);
 }
