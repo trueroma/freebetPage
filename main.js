@@ -1,6 +1,9 @@
 const players = document.querySelector(".list-elements");
 const betsList = document.querySelector(".bets-list-messages");
 const nameOfPPS = document.querySelector(".ardess");
+const firstFive = document.querySelector(".first-five");
+const secondFive = document.querySelector(".second-five");
+const timePeriod = document.querySelector(".date-range");
 
 let topAbsoluter = 74;
 let playerElemHeight = 59;
@@ -104,6 +107,31 @@ const addAllPlayers = data => {
     player.style.top = `${playerElemHeight * (data.rank-1) + topAbsoluter}px`;
     players.append(player);
 }
+const addAllPrizes = (parent, prizeData) => {
+    let placeInfo = document.createElement("div");
+    placeInfo.classList.add("place-info");
+
+    let place = document.createElement("div");
+    place.classList.add("place");
+    let figure = document.createElement("div");
+    figure.classList.add("figure");
+    figure.innerText = prizeData.figure;
+    let mesto = document.createElement("div");
+    mesto.classList.add("mesto");
+    mesto.innerText = 'место';
+    let coupon = document.createElement("div");
+    coupon.classList.add("coupon");
+    let couponPic = document.createElement("img");
+    couponPic.src = "assets/Group 766.svg";
+    let sum = document.createElement("div");
+    sum.classList.add("sum");
+    sum.innerText = prizeData.sum;
+
+    place.append(figure, mesto);
+    coupon.append(couponPic, sum);
+    placeInfo.append(place, coupon);
+    parent.append(placeInfo);
+}
 const addPlayer = adData => {
     let player = document.createElement("div");
     player.classList.add("list-elem");
@@ -189,6 +217,16 @@ socketUrl = socketUrl.replace("/index.html", "");
 
 const socket = new WebSocket(socketUrl);
 console.log("socket:", socket);
+setTimeout(() => {
+    if (socket.readyState != 1 || 0) {
+        players.innerHTML = `<div class="serviceUnavaliable">
+            Сервис обновляется, пожалуйста повторите попытку позднее
+        </div>`;
+        setTimeout(()=>{
+            location.reload();
+        }, 50000);
+    }
+}, 10000);
 socket.onopen = connection => {
     console.log(connection);
 }
@@ -201,6 +239,29 @@ socket.onmessage = event => {
     for (let i = 0; i < rating.length; i++) {
         addAllPlayers(rating[i]);
     }
+    if (data.prizes) {
+        firstFive.innerHTML = '';
+        secondFive.innerHTML = '';
+        for (i = 0; i < 5; i++) {
+            addAllPrizes(
+                firstFive,
+                {
+                    figure: i+1,
+                    sum: data.prizes[i]
+                }
+            );
+        }
+        for (i = 5; i < 10; i++) {
+            addAllPrizes(
+                secondFive,
+                {
+                    figure: i+1,
+                    sum: data.prizes[i]
+                }
+            );
+        }
+    }
+    if (data.period) timePeriod.innerText = data.period;
   }
   if (data.add) {
     console.log(data.add);
@@ -219,5 +280,7 @@ socket.onclose = () => {
         Сервис обновляется, пожалуйста повторите попытку позднее
     </div>`;
 
-    location.reload();
+    setTimeout(()=>{
+        location.reload();
+    }, 60000);
 }
