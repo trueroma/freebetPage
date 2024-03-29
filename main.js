@@ -246,8 +246,8 @@ socket.onmessage = event => {
             addAllPrizes(
                 firstFive,
                 {
-                    figure: i+1,
-                    sum: data.prizes[i]
+                    figure: data.prizes[i].place,
+                    sum: data.prizes[i].name
                 }
             );
         }
@@ -255,8 +255,8 @@ socket.onmessage = event => {
             addAllPrizes(
                 secondFive,
                 {
-                    figure: i+1,
-                    sum: data.prizes[i]
+                    figure: data.prizes[i].place,
+                    sum: data.prizes[i].name
                 }
             );
         }
