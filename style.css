@@ -292,7 +292,7 @@ h2 {
     align-items: center;
     gap: 10px;
     height: 60px;
-    max-width: 286px;
+    width: 280px;
     border-bottom: 1px solid #8394A6;
     padding: 10px 0;
 }
@@ -346,6 +346,7 @@ h2 {
     height: 280px;
     background-color: #66bb6a;
     margin: 10px 18px;
+    z-index: 2;
 }
 
 .bets-history {
