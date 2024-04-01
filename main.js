@@ -242,7 +242,7 @@ socket.onmessage = event => {
     if (data.prizes) {
         firstFive.innerHTML = '';
         secondFive.innerHTML = '';
-        for (i = 0; i < 5; i++) {
+        for (let i = 0; i < 5; i++) {
             addAllPrizes(
                 firstFive,
                 {
@@ -251,7 +251,7 @@ socket.onmessage = event => {
                 }
             );
         }
-        for (i = 5; i < 10; i++) {
+        for (let i = 5; i < 10; i++) {
             addAllPrizes(
                 secondFive,
                 {
