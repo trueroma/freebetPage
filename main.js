@@ -19,7 +19,7 @@ const updateMessages = textMsg => {
     message.innerText = textMsg;
 
     betsList.prepend(message);
-    if (betsList.children.length > 3) betsList.removeChild(betsList.childNodes[3]);
+    while (betsList.children.length > 3) betsList.removeChild(betsList.childNodes[3]);
 }
 
 const reShuffle = obj => {
