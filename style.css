@@ -7,7 +7,7 @@ body {
     width: 100vw;
     /* height: 100vh; */
     background-color: #114BB3;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 header {
     width: 100vw;
