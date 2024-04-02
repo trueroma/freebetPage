@@ -5,9 +5,7 @@
 }
 body {
     width: 100vw;
-    /* height: 100vh; */
     background-color: #114BB3;
-    overflow: hidden;
 }
 header {
     width: 100vw;
@@ -476,4 +474,10 @@ h2 {
     text-align: center;
     left: 25vw;
     z-index: 2;
+}
+  
+@media (orientation: portrait) {
+    body {
+        overflow: hidden;
+    }
 }
