@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@100..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -17,7 +19,7 @@ header {
     align-items: center;
 }
 .ardess {
-    font-family: sans-serif;
+    font-family: Onest;
     font-size: 24px;
     font-weight: 400;
     line-height: 26px;
@@ -68,7 +70,7 @@ header {
     height: 50px;
 }
 .list-head p {
-    font-family: sans-serif;
+    font-family: Onest;
     font-size: 16px;
     font-weight: 400;
     line-height: 18px;
@@ -101,7 +103,7 @@ header {
     /* transition: background-color 60s ease; */
 }
 .list-elem p {
-    font-family: sans-serif;
+    font-family: Onest;
     font-size: 18px;
     font-weight: 700;
     line-height: 20px;
@@ -139,7 +141,7 @@ header {
     width: 700px;
 }
 .promo-info .page-name {
-    font-family: sans-serif;
+    font-family: Onest;
     font-size: 24px;
     font-weight: 400;
     line-height: 26px;
@@ -151,24 +153,23 @@ header {
     display: flex;
 }
 .title-desc {
-    margin-left: 20px;
+    margin-top: 14px;
 }
 .title-desc h1 {
-    font-family: sans-serif;
-    font-size: 42px;
+    font-family: Onest;
+    font-size: 40px;
     font-weight: 700;
-    line-height: 46px;
+    line-height: 44px;
     text-align: left;
     color: #fff;
-    margin-bottom: 4px;
 }
 .date-range {
-    font-family: sans-serif;
-    font-size: 26px;
-    font-weight: 600;
-    line-height: 28.6px;
+    font-family: Onest;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 22px;
     text-align: left;
-    color: #93d500;
+    color: #ffffff;
 }
 
 .three-steps {
@@ -177,17 +178,17 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 24px;
 }
 .green-card {
-    background-color: #2eac12;
+    background-color: #00AC00;
     width: 200px;
-    padding: 27px 20px 20px 20px;
+    padding: 20px 24px 24px 24px;
     height: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border-radius: 50px 50px 50px 0;
+    border-radius: 40px 40px 40px 0;
 }
 .green-card .titleish {
     display: flex;
@@ -201,15 +202,15 @@ header {
     height: 60px;
 }
 .green-card .titleish .text {
-    font-family: sans-serif;
+    font-family: Onest;
     font-size: 26px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 26px;
     text-align: left;
     color: #fff;
 }
 .green-card .desc {
-    font-family: sans-serif;
+    font-family: Onest;
     font-size: 22px;
     font-weight: 400;
     line-height: 22px;
@@ -223,8 +224,14 @@ header {
     flex-direction: column;
     justify-content: space-between; */
 }
+.rules-title {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 10px;
+}
 h2 {
-    font-family: sans-serif;
+    font-family: Onest;
     font-size: 28px;
     font-weight: 700;
     line-height: 30.8px;
@@ -233,30 +240,103 @@ h2 {
 }
 .rules-content {
     margin-top: 16px;
-    font-family: sans-serif;
-    font-size: 21px;
+    font-family: Onest;
+    font-size: 19px;
     font-weight: 400;
-    line-height: 25.2px;
+    line-height: 22.8px;
+    letter-spacing: 0.02em;
     text-align: left;
     color: #fff;
 }
+.rating-formation {
+    font-family: Onest;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 23.1px;
+    text-align: left;
+    color: #fff;
+}
+.bb-block {
+    width: 154px;
+    height: 94px;
+    padding: 0px 25px 0px 25px;
+    border-radius: 16px;
+    opacity: 0px;
+    background: #00AC00;
 
-.reminder {
-    display: flex;
-    align-items: center;
-    margin-top: 24px;
-    padding: 10px 12px;
-    border: 2px solid #088BE7;
-    border-radius: 38px;
-}
-.text-reminder {
-    font-family: sans-serif;
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 26.4px;
-    text-align: left;
+    font-family: Onest;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: center;
     color: #fff;
-    margin-left: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.the-scheme {
+    display: flex;
+    gap: 15px;
+}
+.multiply {
+    color: #fff;
+    background-color: #0066DF;
+    height: 94px;
+    padding: 10px 15px 10px 15px;
+    border-radius: 16px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.multiply-scheme {
+    margin-top: 22px;
+    margin-bottom: 22px;
+    gap: 14px;
+    display: flex;
+    flex-direction: column;
+}
+.top {
+    display: flex;
+    gap: 5px;
+}
+.bigNum {
+    font-family: Onest;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 36px;
+    text-align: left;
+}
+.bottom {
+    font-family: Onest;
+    font-size: 19px;
+    font-weight: 300;
+    line-height: 19px;
+    text-align: center;
+}
+#timesTwo {
+    width: 108px;
+}
+#timesFive {
+    width: 145px;
+}
+.beetweenMultiplyers, .result {
+    color: #fff;
+    font-family: Onest;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: left;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.result {
+    font-size: 23px !important;
+    line-height: 25.3px !important;
 }
 
 .prizes {
@@ -306,7 +386,7 @@ h2 {
     align-items: center;
     padding: 5.5px 9.5px;
     text-align: center;
-    font-family: sans-serif;
+    font-family: Onest;
 }
 .figure {
     font-size: 16px;
@@ -327,7 +407,7 @@ h2 {
 }
 .sum {
     color: #31404F;
-    font-family: sans-serif;
+    font-family: Onest;
     font-size: 18px;
     font-weight: 700;
     line-height: 19.8px;
@@ -392,7 +472,7 @@ h2 {
     bottom: 360px;
 }
 .bet-info {
-    font-family: sans-serif;
+    font-family: Onest;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
@@ -434,7 +514,7 @@ h2 {
     height: 50px;
     border-radius: 12px;
     padding: 10px 12px;
-    font-family: sans-serif;
+    font-family: "Onest", sans-serif;
     font-size: 17px;
     font-weight: 700;
     line-height: 19px;
@@ -461,7 +541,7 @@ h2 {
 }
 .serviceUnavaliable {
     position: absolute;
-    font-family: sans-serif;
+    font-family: Onest;
     font-size: 42px;
     font-weight: 700;
     line-height: 46px;
