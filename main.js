@@ -219,12 +219,12 @@ const socket = new WebSocket(socketUrl);
 console.log("socket:", socket);
 setTimeout(() => {
     if (socket.readyState != 1 || 0) {
-        // players.innerHTML = `<div class="serviceUnavaliable">
-        //     Сервис обновляется, пожалуйста повторите попытку позднее
-        // </div>`;
-        // setTimeout(()=>{
-        //     location.reload();
-        // }, 50000);
+        players.innerHTML = `<div class="serviceUnavaliable">
+            Сервис обновляется, пожалуйста повторите попытку позднее
+        </div>`;
+        setTimeout(()=>{
+            location.reload();
+        }, 50000);
     }
 }, 10000);
 socket.onopen = connection => {
@@ -276,11 +276,11 @@ socket.onmessage = event => {
   }
 }
 socket.onclose = () => {
-    // players.innerHTML = `<div class="serviceUnavaliable">
-    //     Сервис обновляется, пожалуйста повторите попытку позднее
-    // </div>`;
+    players.innerHTML = `<div class="serviceUnavaliable">
+        Сервис обновляется, пожалуйста повторите попытку позднее
+    </div>`;
 
-    // setTimeout(()=>{
-    //     location.reload();
-    // }, 60000);
+    setTimeout(()=>{
+        location.reload();
+    }, 60000);
 }
