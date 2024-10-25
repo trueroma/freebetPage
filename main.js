@@ -16,6 +16,8 @@ const updateMessages = textMsg => {
         message.style.backgroundColor = '';
     }, 7000);
 
+    textMsg = textMsg.replace("Арарат Ф. +7...4967", "А.Ф. +7...4967");
+    textMsg = textMsg.replace("Хакимжон И. +7...0973", "Х.И. +7...0973");
     message.innerText = textMsg;
 
     betsList.prepend(message);
@@ -98,6 +100,9 @@ const addAllPlayers = data => {
 
     pointsWrapper.append(points);
     player.append(currRank, playerName, phoneNum, pointsWrapper);
+
+    data.name = data.name.replace("Арарат Ф. +7...4967", "А.Ф. +7...4967");
+    data.name = data.name.replace("Хакимжон И. +7...0973", "Х.И. +7...0973");
 
     currRank.innerText = data.rank;
     playerName.innerText = data.name;
