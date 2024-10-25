@@ -116,9 +116,6 @@ const addAllPrizes = (parent, prizeData) => {
     let figure = document.createElement("div");
     figure.classList.add("figure");
     figure.innerText = prizeData.figure;
-    let mesto = document.createElement("div");
-    mesto.classList.add("mesto");
-    mesto.innerText = 'место';
     let coupon = document.createElement("div");
     coupon.classList.add("coupon");
     let couponPic = document.createElement("img");
@@ -127,7 +124,7 @@ const addAllPrizes = (parent, prizeData) => {
     sum.classList.add("sum");
     sum.innerText = prizeData.sum;
 
-    place.append(figure, mesto);
+    place.append(figure);
     coupon.append(couponPic, sum);
     placeInfo.append(place, coupon);
     parent.append(placeInfo);
